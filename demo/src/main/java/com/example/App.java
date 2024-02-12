@@ -82,11 +82,11 @@ public class App {
         switch (command) {
             case 'a':
                 System.out.print("Enter a number: ");
-                A = scan.nextFloat();
+                // A = scan.nextFloat();
                 break;
             case 'b':
                 System.out.print("Enter a number: ");
-                B = scan.nextFloat();
+                // B = scan.nextFloat();
                 break;
             case '+':
                 break;
@@ -97,6 +97,8 @@ public class App {
             case '/':
                 break;
             case 'c':
+                A = 0.0f;
+                B = 0.0f;
                 break;
             case 'q':
                 System.out.println("Thank you for using Chavvi Calc");
