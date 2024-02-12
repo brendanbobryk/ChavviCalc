@@ -94,6 +94,7 @@ public class App {
                 scan.nextLine();
                 break;
             case '+':
+                valuesAB[0] = valuesAB[0] + valuesAB[1];
                 break;
             case '-':
                 break;
