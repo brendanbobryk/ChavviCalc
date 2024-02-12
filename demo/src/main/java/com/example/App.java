@@ -87,7 +87,7 @@ public class App {
                 try {
                     valuesAB[0] = scan.nextFloat();
                 } catch (Exception e) {
-                    System.out.println("ERROR: That is not a floating point number.");
+                    System.out.println("ERROR: The value entered is not a floating point number.");
                 }
                 scan.nextLine();
                 break;
@@ -97,7 +97,7 @@ public class App {
                 try {
                     valuesAB[1] = scan.nextFloat();
                 } catch (Exception e) {
-                    System.out.println("ERROR: That is not a floating point number.");
+                    System.out.println("ERROR: The value entered is not a floating point number.");
                 }
                 scan.nextLine();
                 break;
@@ -111,7 +111,11 @@ public class App {
                 valuesAB[0] = valuesAB[0] * valuesAB[1];
                 break;
             case '/': // dividing values A and B
-                valuesAB[0] = valuesAB[0] / valuesAB[1];
+                if (valuesAB[1] == 0) {
+                    System.out.println("ERROR: Unable to divide by 0.");
+                } else {
+                    valuesAB[0] = valuesAB[0] / valuesAB[1];
+                }
                 break;
             case 'c': // resetting the values A and B to 0
                 valuesAB[0] = 0;
