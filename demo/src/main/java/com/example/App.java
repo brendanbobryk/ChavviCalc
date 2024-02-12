@@ -102,8 +102,8 @@ public class App {
             case '/':
                 break;
             case 'c':
-                // A = 0.0f;
-                // B = 0.0f;
+                valuesAB[0] = 0;
+                valuesAB[1] = 0;
                 break;
             case 'q':
                 System.out.println("Thank you for using Chavvi Calc");
