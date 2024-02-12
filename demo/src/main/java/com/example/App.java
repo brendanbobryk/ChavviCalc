@@ -3,7 +3,9 @@ package com.example;
 import java.util.*;
 
 /*
- * chavvi calc calculator
+ * Chavvicalc Calculator App
+ * Brendan Bobryk, 1036738
+ * Assignment week 3/4
  */
 public class App {
 
@@ -40,7 +42,16 @@ public class App {
         printMenuLine();
         System.out.println("ChavviCalc");
         printMenuLine();
+        System.out.println("A = " + /* a + */ "B = "/* + b */);
+        printMenuLine();
 
+        printMenuCommand('a', "Enter a value for A");
+        printMenuCommand('b', "Enter a value for B");
+        printMenuCommand('+', "Add");
+        printMenuCommand('-', "Subtract");
+        printMenuCommand('*', "Multiply");
+        printMenuCommand('/', "Divide");
+        printMenuCommand('c', "Clear");
         printMenuCommand('q', "Quit");
 
         printMenuLine();
