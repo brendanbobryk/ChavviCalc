@@ -100,6 +100,7 @@ public class App {
                 valuesAB[0] = valuesAB[0] - valuesAB[1];
                 break;
             case '*':
+                valuesAB[0] = valuesAB[0] * valuesAB[1];
                 break;
             case '/':
                 break;
