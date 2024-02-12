@@ -1,6 +1,7 @@
 package com.example;
 
-import java.util.*;
+import java.text.DecimalFormat;
+import java.util.Scanner;
 
 /*
  * Chavvicalc Calculator App
@@ -13,13 +14,16 @@ public class App {
         Scanner scan = new Scanner(System.in);
         Character command = '_';
 
+        float A = 0.0f, B = 0.0f;
+        DecimalFormat df = new DecimalFormat("#0.000");
+
         // loop until user quits
         while (command != 'q') {
-            printMenu();
+            printMenu(A, B, df);
             System.out.print("Enter a command: ");
             command = menuGetCommand(scan);
 
-            executeCommand(scan, command);
+            executeCommand(scan, command, A, B);
         }
 
         scan.close();
@@ -38,11 +42,11 @@ public class App {
     }
 
     // prints the menu
-    public static void printMenu() {
+    public static void printMenu(Float A, Float B, DecimalFormat df) {
         printMenuLine();
         System.out.println("ChavviCalc");
         printMenuLine();
-        System.out.println("A = " + /* a + */ "B = "/* + b */);
+        System.out.println("A = " + df.format(A) + "     B = " + df.format(B));
         printMenuLine();
 
         printMenuCommand('a', "Enter a value for A");
@@ -72,10 +76,28 @@ public class App {
     }
 
     // calculator functions
-    private static Boolean executeCommand(Scanner scan, Character command) {
+    private static Boolean executeCommand(Scanner scan, Character command, float A, float B) {
         Boolean success = true;
 
         switch (command) {
+            case 'a':
+                System.out.print("Enter a number: ");
+                A = scan.nextFloat();
+                break;
+            case 'b':
+                System.out.print("Enter a number: ");
+                B = scan.nextFloat();
+                break;
+            case '+':
+                break;
+            case '-':
+                break;
+            case '*':
+                break;
+            case '/':
+                break;
+            case 'c':
+                break;
             case 'q':
                 System.out.println("Thank you for using Chavvi Calc");
                 break;
