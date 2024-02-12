@@ -14,8 +14,8 @@ public class App {
         Scanner scan = new Scanner(System.in);
         Character command = '_';
 
-        boolean response = false;
-
+        // variable declarations
+        boolean success = false;
         float[] valuesAB = new float[2];
         valuesAB[0] = 0.0f;
         valuesAB[1] = 0.0f;
@@ -26,15 +26,13 @@ public class App {
             printMenu(valuesAB, df);
             System.out.print("Enter a command: ");
             command = menuGetCommand(scan);
-            response = executeCommand(scan, command, valuesAB);
+            success = executeCommand(scan, command, valuesAB);
         }
 
         scan.close();
     }
 
-    //
     // menu functions
-    //
     private static void printMenuLine() {
         System.out.println(
                 "----------------------------------------------------------");
@@ -49,6 +47,7 @@ public class App {
         printMenuLine();
         System.out.println("ChavviCalc");
         printMenuLine();
+        // formats and prints the values of A and B
         System.out.println("A = " + df.format(valuesAB[0]) + "     B = " + df.format(valuesAB[1]));
         printMenuLine();
 
@@ -83,36 +82,45 @@ public class App {
         Boolean success = true;
 
         switch (command) {
-            case 'a':
+            case 'a': // assigning a value to A
                 System.out.print("Enter a number: ");
-                valuesAB[0] = scan.nextFloat();
+                try {
+                    valuesAB[0] = scan.nextFloat();
+                } catch (Exception e) {
+                    System.out.println("ERROR: That is not a floating point number.");
+                }
                 scan.nextLine();
                 break;
-            case 'b':
+
+            case 'b': // assigning a value to B
                 System.out.print("Enter a number: ");
-                valuesAB[1] = scan.nextFloat();
+                try {
+                    valuesAB[1] = scan.nextFloat();
+                } catch (Exception e) {
+                    System.out.println("ERROR: That is not a floating point number.");
+                }
                 scan.nextLine();
                 break;
-            case '+':
+            case '+': // adding values A and B
                 valuesAB[0] = valuesAB[0] + valuesAB[1];
                 break;
-            case '-':
+            case '-': // subtracting values A and B
                 valuesAB[0] = valuesAB[0] - valuesAB[1];
                 break;
-            case '*':
+            case '*': // multiplying values A and B
                 valuesAB[0] = valuesAB[0] * valuesAB[1];
                 break;
-            case '/':
+            case '/': // dividing values A and B
                 valuesAB[0] = valuesAB[0] / valuesAB[1];
                 break;
-            case 'c':
+            case 'c': // resetting the values A and B to 0
                 valuesAB[0] = 0;
                 valuesAB[1] = 0;
                 break;
-            case 'q':
+            case 'q': // quitting the program
                 System.out.println("Thank you for using Chavvi Calc");
                 break;
-            default:
+            default: // error handling
                 System.out.println("ERROR: Unknown commmand");
                 success = false;
         }
