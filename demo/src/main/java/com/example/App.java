@@ -15,7 +15,7 @@ public class App {
         Character command = '_';
 
         // variable declarations
-        boolean success = false;
+        boolean success = true;
         float[] valuesAB = new float[2];
         valuesAB[0] = 0.0f;
         valuesAB[1] = 0.0f;
@@ -23,6 +23,9 @@ public class App {
 
         // loop until user quits
         while (command != 'q') {
+            if (success == false) {
+                System.out.println("Only the listed commands are available to be entered.");
+            }
             printMenu(valuesAB, df);
             System.out.print("Enter a command: ");
             command = menuGetCommand(scan);
