@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 import java.util.Scanner;
 
 /*
- * Chavvicalc Calculator App
+ * ChavviCalc Calculator App
  * Brendan Bobryk, 1036738
  * Assignment Week 3/4
  */
@@ -125,10 +125,10 @@ public class App {
                 valuesAB[1] = 0;
                 break;
             case 'q': // quitting the program
-                System.out.println("Thank you for using Chavvi Calc");
+                System.out.println("Thank you for using ChavviCalc");
                 break;
             default: // error handling
-                System.out.println("ERROR: Unknown commmand");
+                System.out.println("ERROR: Unknown command");
                 success = false;
         }
 
