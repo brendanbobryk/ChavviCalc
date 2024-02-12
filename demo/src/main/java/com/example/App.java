@@ -6,7 +6,7 @@ import java.util.Scanner;
 /*
  * Chavvicalc Calculator App
  * Brendan Bobryk, 1036738
- * Assignment week 3/4
+ * Assignment Week 3/4
  */
 public class App {
 
@@ -14,16 +14,19 @@ public class App {
         Scanner scan = new Scanner(System.in);
         Character command = '_';
 
-        float A = 0.0f, B = 0.0f;
+        boolean response = false;
+
+        float[] valuesAB = new float[2];
+        valuesAB[0] = 0.0f;
+        valuesAB[1] = 0.0f;
         DecimalFormat df = new DecimalFormat("#0.000");
 
         // loop until user quits
         while (command != 'q') {
-            printMenu(A, B, df);
+            printMenu(valuesAB, df);
             System.out.print("Enter a command: ");
             command = menuGetCommand(scan);
-
-            executeCommand(scan, command, A, B);
+            response = executeCommand(scan, command, valuesAB);
         }
 
         scan.close();
@@ -42,11 +45,11 @@ public class App {
     }
 
     // prints the menu
-    public static void printMenu(Float A, Float B, DecimalFormat df) {
+    public static void printMenu(float[] valuesAB, DecimalFormat df) {
         printMenuLine();
         System.out.println("ChavviCalc");
         printMenuLine();
-        System.out.println("A = " + df.format(A) + "     B = " + df.format(B));
+        System.out.println("A = " + df.format(valuesAB[0]) + "     B = " + df.format(valuesAB[1]));
         printMenuLine();
 
         printMenuCommand('a', "Enter a value for A");
@@ -76,17 +79,19 @@ public class App {
     }
 
     // calculator functions
-    private static Boolean executeCommand(Scanner scan, Character command, float A, float B) {
+    private static Boolean executeCommand(Scanner scan, Character command, float[] valuesAB) {
         Boolean success = true;
 
         switch (command) {
             case 'a':
                 System.out.print("Enter a number: ");
-                // A = scan.nextFloat();
+                valuesAB[0] = scan.nextFloat();
+                scan.nextLine();
                 break;
             case 'b':
                 System.out.print("Enter a number: ");
-                // B = scan.nextFloat();
+                valuesAB[1] = scan.nextFloat();
+                scan.nextLine();
                 break;
             case '+':
                 break;
@@ -97,8 +102,8 @@ public class App {
             case '/':
                 break;
             case 'c':
-                A = 0.0f;
-                B = 0.0f;
+                // A = 0.0f;
+                // B = 0.0f;
                 break;
             case 'q':
                 System.out.println("Thank you for using Chavvi Calc");
